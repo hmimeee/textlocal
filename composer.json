@@ -1,0 +1,35 @@
+{
+    "name": "hmimeee/textlocal",
+    "description": "HTTP(s) SMS API Handler for TextLocal - An SMS sending provider",
+    "keywords": [
+        "sms-api",
+        "textlocal",
+        "notification",
+        "sms"
+    ],
+    "homepage": "https://github.com/hmimeee/textlocal",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Hossain Mohammad Imran",
+            "email": "hmimeee@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hmimeee\\TextLocal\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hmimeee\\TextLocal\\TextLocalServiceProvider"
+            ]
+        }
+    }
+}
