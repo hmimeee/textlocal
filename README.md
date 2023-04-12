@@ -1,4 +1,4 @@
-# Very short description of the package
+# HTTP(s) SMS API Handler for TextLocal - An SMS sending provider
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hmimeee/textlocal.svg?style=flat-square)](https://packagist.org/packages/hmimeee/textlocal)
 [![Total Downloads](https://img.shields.io/packagist/dt/hmimeee/textlocal.svg?style=flat-square)](https://packagist.org/packages/hmimeee/textlocal)
