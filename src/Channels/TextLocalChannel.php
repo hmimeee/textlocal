@@ -2,11 +2,11 @@
 
 namespace Hmimeee\TextLocal\Channels;
 
-use Hmimeee\TextLocal\Exceptions\TextLocalException;
+use Throwable;
 use Hmimeee\TextLocal\TextLocal;
 use Illuminate\Notifications\Notification;
-use Hmimeee\TextLocal\Messages\TextLocalMessage;
-use Throwable;
+use Hmimeee\TextLocal\Events\TextLocalResultEvent;
+use Hmimeee\TextLocal\Exceptions\TextLocalException;
 
 class TextLocalChannel
 {
@@ -56,7 +56,10 @@ class TextLocalChannel
             //Intstantiate the TextLocal for sending sms
             $client = new TextLocal($this->apiKey);
 
-            return $client->sendSms([$to], $message, $this->sender);
+            $result = $client->sendSms([$to], $message, $this->sender);
+
+            TextLocalResultEvent::dispatch($result);
+            
         } catch (Throwable $th) {
             throw new TextLocalException($th->getMessage(), $th->getCode(), $th);
         }
