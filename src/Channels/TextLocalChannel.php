@@ -61,7 +61,17 @@ class TextLocalChannel
             TextLocalResultEvent::dispatch($result);
             
         } catch (Throwable $th) {
-            throw new TextLocalException($th->getMessage(), $th->getCode(), $th);
+
+            TextLocalResultEvent::dispatch((object) [
+                'status' => 'fail',
+                'error' => $th->getMessage(),
+                'messages' => [
+                  (object)  ['recipient' => $to]
+                ],
+                'message' => (object) ['content' => $message]
+            ]);
+
+            // throw new TextLocalException($th->getMessage(), $th->getCode(), $th);
         }
     }
 }
