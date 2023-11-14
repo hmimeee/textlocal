@@ -9,7 +9,7 @@
 You can install the package via composer:
 
 ```bash
-composer require hmimeee/easysendsms
+composer require hmimeee/textlocal
 ```
 
 ## Usage
